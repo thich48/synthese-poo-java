@@ -8,11 +8,11 @@ public abstract class BankAccount {
     private String accountId;
     private double initialBalance;
     private String currency;
-    private Status status;
+    private AccountStatus accountStatus;
 
     public BankAccount() {
         this.accountId= UUID.randomUUID().toString();
-        this.status=Status.CREATED;
+        this.accountStatus = AccountStatus.CREATED;
     }
 
     public BankAccount(String currency, double initialBalance) {
@@ -27,7 +27,7 @@ public abstract class BankAccount {
                 "accountId='" + accountId + '\'' +
                 ", balance=" + initialBalance +
                 ", currency='" + currency + '\'' +
-                ", status=" + status +
+                ", status=" + accountStatus +
                 '}';
     }
 
@@ -55,21 +55,26 @@ public abstract class BankAccount {
         this.currency = currency;
     }
 
-    public Status getStatus() {
-        return status;
+    public AccountStatus getStatus() {
+        return accountStatus;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(AccountStatus accountStatus) {
+        this.accountStatus = accountStatus;
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(this.accountId)+
                 Objects.hashCode(this.initialBalance)+
-                Objects.hashCode(this.status)+
+                Objects.hashCode(this.accountStatus)+
                 Objects.hashCode(this.currency);
     }
 
     public abstract String getType();
+
+    public final void print(){
+        System.out.println("===============  BANK ==================");
+    }
+
 }

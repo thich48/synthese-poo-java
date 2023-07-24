@@ -16,6 +16,7 @@ public class Demo2Application {
     public static void main(String[] args) throws JsonProcessingException {
 
         Map<String, BankAccount> comptMap = new HashMap<>();
+
         comptMap.put("cc1", new CurrentAccount("DA", 37000, 4000));
         comptMap.put("cc2", new CurrentAccount( "EU",25000, 3000));
         comptMap.put("cc3", new CurrentAccount("RS",72000, 2500));
